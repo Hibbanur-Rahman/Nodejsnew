@@ -1,0 +1,27 @@
+{
+  "name": "node-js",
+  "version": "1.0.0",
+  "description": "this is first node js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hibbanur-Rahman/node-js.git"
+  },
+  "keywords": [
+    "hibban"
+  ],
+  "author": "hibban",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hibbanur-Rahman/node-js/issues"
+  },
+  "homepage": "https://github.com/Hibbanur-Rahman/node-js#readme",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "colors": "^1.4.0",
+    "simple-node-logger": "^21.8.12"
+  }
+}
