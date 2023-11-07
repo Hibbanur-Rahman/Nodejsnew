@@ -309,8 +309,13 @@ app.get('/',(req,res)=>{
 app.get('/profile',(req,res)=>{
   const user={
     name:'hibban',
-    email:'hibban@gmail.com'
+    email:'hibban@gmail.com',
+    skills:['php','c++','python','java']
   }
   res.render('profile',{user});
+})
+
+app.get('/login',(req,res)=>{
+    res.render('login');
 })
 app.listen(5000);
