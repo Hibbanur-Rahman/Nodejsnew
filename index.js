@@ -294,12 +294,15 @@ app.get('*',(req,res)=>{
 app.listen(5000);*/
 
 
+
+
 //using the template engine we try to build dynamic web page using ejs
-const express=require('express');
+/*const express=require('express');
 const path=require('path');
 
 const publicPath=path.join(__dirname,'public');
 const app=express();
+const veiwsEjsPath=path.join(__dirname,'views');
 
 app.set('view engine','ejs');
 
@@ -318,4 +321,84 @@ app.get('/profile',(req,res)=>{
 app.get('/login',(req,res)=>{
     res.render('login');
 })
-app.listen(5000);
+app.use(express.static(veiwsEjsPath));
+app.listen(5000);*/
+
+
+
+
+
+//using the application middleware
+/*const express=require('express');
+const app =express();
+
+const reqFilter=(req,res,next)=>{
+  if(req.query.age<18){
+    res.send('Please enter the age in query');
+  }
+  else{
+    next();
+  }
+ 
+}
+app.use(reqFilter);
+
+app.get('/',(req,res)=>{
+  res.send('this is home page');
+});
+app.get('/about',(req,res)=>{
+  res.send('this is about page');
+});
+app.get('/users',(req,res)=>{
+  res.send('this is user page');
+});
+app.listen(5000);*/
+
+
+
+
+//using the single and multi-routes middleware
+/*const express = require('express');
+const reqFilter = require('./middleware');
+const app = express();
+const routes=express.Router();
+
+routes.use(reqFilter);
+
+app.get('/', (req, res) => {
+  res.send("this is home page");
+});
+routes.get('/profile',(req, res) => {
+  res.send('this is profile page');
+});
+routes.get('/about', (req, res) => {
+  res.send('this is about page');
+});
+
+app.use('/',routes);
+app.listen(5000);*/
+
+
+
+
+//connect the node to mongodb
+const { MongoClient } = require('mongodb');
+const url = 'mongodb://localhost:27017';
+const client = new MongoClient(url);
+
+const database = 'HotelBooking';
+async function getData() {
+  let result = await client.connect();
+  let db=result.db(database);
+  let collection = db.collection('hotel');
+
+  let response=await collection.find({}).toArray();
+
+  let insertResult=await collection.insertMany([{name:"hibban",email:"hibban@gmail.com",dept:"cs&it"},{name:"meraj",email:"meraj@gmail.com",dept:"cs&it"},{name:"zahid",email:"zahid@gmail.com",dept:"cs&it"}])
+  
+  // let deleteResult=await collection.deleteMany({name:"meraj"});
+
+  console.log(response);
+  // console.log(deleteResult);
+}
+getData();
