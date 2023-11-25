@@ -297,7 +297,7 @@ app.listen(5000);*/
 
 
 //using the template engine we try to build dynamic web page using ejs
-/*const express=require('express');
+const express=require('express');
 const path=require('path');
 
 const publicPath=path.join(__dirname,'public');
@@ -307,7 +307,7 @@ const veiwsEjsPath=path.join(__dirname,'views');
 app.set('view engine','ejs');
 
 app.get('/',(req,res)=>{
-  res.send(`${publicPath}/index.html`);
+  res.sendFile(`${publicPath}/index.html`);
 })
 app.get('/profile',(req,res)=>{
   const user={
@@ -322,8 +322,9 @@ app.get('/login',(req,res)=>{
     res.render('login');
 })
 app.use(express.static(veiwsEjsPath));
-app.listen(5000);*/
+app.listen(5000);
 
+console.log(publicPath)
 
 
 
@@ -382,7 +383,7 @@ app.listen(5000);*/
 
 
 //connect the node to mongodb
-const { MongoClient } = require('mongodb');
+/*const { MongoClient } = require('mongodb');
 const url = 'mongodb://localhost:27017';
 const client = new MongoClient(url);
 
@@ -394,11 +395,11 @@ async function getData() {
 
   let response=await collection.find({}).toArray();
 
-  let insertResult=await collection.insertMany([{name:"hibban",email:"hibban@gmail.com",dept:"cs&it"},{name:"meraj",email:"meraj@gmail.com",dept:"cs&it"},{name:"zahid",email:"zahid@gmail.com",dept:"cs&it"}])
+  // let insertResult=await collection.insertMany([{name:"hibban",email:"hibban@gmail.com",dept:"cs&it"},{name:"meraj",email:"meraj@gmail.com",dept:"cs&it"},{name:"zahid",email:"zahid@gmail.com",dept:"cs&it"}])
   
-  // let deleteResult=await collection.deleteMany({name:"meraj"});
+  // let deleteResult=await collection.deleteMany({name:"zahid"});
 
   console.log(response);
   // console.log(deleteResult);
 }
-getData();
+getData();*/

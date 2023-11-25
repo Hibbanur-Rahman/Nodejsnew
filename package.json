@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Hibbanur-Rahman/node-js#readme",
   "dependencies": {
+    "axios": "^1.6.2",
     "chalk": "^5.2.0",
     "colors": "^1.4.0",
     "ejs": "^3.1.9",
